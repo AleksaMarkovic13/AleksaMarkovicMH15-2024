@@ -5,6 +5,20 @@ public class Circle {
 	private int radius;
 	private boolean selected;
 	
+	public Circle() {
+		
+	}
+	
+	public Circle(Point center,int radius) {
+		this.center=center;
+		this.radius=radius;
+	}
+	
+	public Circle(Point center,int radius,boolean selected) {
+		this(center,radius);
+		this.selected=selected;
+	}
+	
 	public double circumference() {
 		System.out.println("Povrsina je");
 		return 2*radius*Math.PI;
@@ -14,6 +28,11 @@ public class Circle {
 	public double area() {
 		System.out.println("Povrsina je:");
 		return Math.PI*radius*radius;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("(%s,%s), radius=<%s>",center.getX(),center.getY(),radius);
 	}
 	
 	public Point getCenter() {
