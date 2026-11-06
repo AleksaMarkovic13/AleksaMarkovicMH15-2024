@@ -34,6 +34,18 @@ public class Circle {
 	public String toString() {
 		return String.format("(%s,%s), radius=<%s>",center.getX(),center.getY(),radius);
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(o instanceof Circle){
+			Circle tmp=(Circle)o;
+			if(radius==tmp.getRadius()&&){
+				return true;
+			}
+			
+			return false;
+		}
+	}
 	
 	public Point getCenter() {
 		return center;
