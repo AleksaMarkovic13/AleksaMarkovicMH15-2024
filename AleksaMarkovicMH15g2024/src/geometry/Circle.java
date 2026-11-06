@@ -20,7 +20,7 @@ public class Circle {
 	}
 	
 	public double circumference() {
-		System.out.println("Povrsina je");
+		System.out.println("Obim je");
 		return 2*radius*Math.PI;
 		
 	}
@@ -39,12 +39,11 @@ public class Circle {
 	public boolean equals(Object o){
 		if(o instanceof Circle){
 			Circle tmp=(Circle)o;
-			if(radius==tmp.getRadius()&&){
+			if(radius==tmp.getRadius()&&center.equals(tmp.center)){
 				return true;
 			}
-			
-			return false;
 		}
+		return false;
 	}
 	
 	public Point getCenter() {

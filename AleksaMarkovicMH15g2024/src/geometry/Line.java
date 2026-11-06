@@ -27,6 +27,18 @@ public class Line {
 	public String toString() {
 		return String.format("(%s, %s)->(%s,%s)",startPoint.getX(),startPoint.getY(),endPoint.getX(),endPoint.getY());
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(o instanceof Line){
+			Line tmp==(Line)o;
+			(if((tmp.startPoint.equals(startPoint)&&tmp.endPoint.equals(endPoint))||(endPoint.equals(tmp.startPoint)&&startPoint.equals(tmp.endPoint)))){
+				return true;
+			}
+		}
+
+		return false;
+	}
 	
 	public Point getStartPoint() {return startPoint;}
 	public void setStartPoint(Point startPoint) {this.startPoint=startPoint;}
