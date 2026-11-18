@@ -1,9 +1,9 @@
 package geometry;
 
 public class Circle {
-	private Point center;
-	private int radius;
-	private boolean selected;
+	protected Point center;
+	protected int radius;
+	protected boolean selected;
 	
 	public Circle() {
 		
@@ -28,6 +28,17 @@ public class Circle {
 	public double area() {
 		System.out.println("Povrsina je:");
 		return Math.PI*radius*radius;
+	}
+	
+	public boolean contains(int x,int y) {
+		
+		return center.distance(new Point(x,y))<=radius;
+		
+	}
+	
+	public boolean contains(Point click) {
+		
+		return contains(click.getX(),click.getY());
 	}
 	
 	@Override
