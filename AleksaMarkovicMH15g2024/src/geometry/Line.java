@@ -1,9 +1,9 @@
 package geometry;
 
-public class Line {
+public class Line extends Shape {
 	private Point startPoint;
 	private Point endPoint;
-	private boolean selected;
+	
 	
 	public Line() {
 		
@@ -23,6 +23,19 @@ public class Line {
 		return startPoint.distance(endPoint);
 	}
 	
+	@Override
+	public void moveTo(int x,int y) {
+		
+		
+	}
+	
+	@Override
+	public void moveBy(int byX,int byY) {
+		startPoint.moveBy(byX,byY);
+		endPoint.moveBy(byX, byY);
+	}
+	
+	@Override
 	public boolean contains(int x,int y) {
 		Point click =new Point(x,y);
 		return (length()-(startPoint.distance(click)+endPoint.distance(click)))<=2;
@@ -34,10 +47,21 @@ public class Line {
 	}
 
 	@Override
+	public int compareTo(Shape o) {
+		if(o instanceof Line) {
+			Line temp=(Line)o;
+			return (int) (length()-temp.length());
+		}
+		
+		return 0;
+	}
+	
+	@Override
 	public boolean equals(Object o){
 		if(o instanceof Line){
-			Line tmp==(Line)o;
-			(if((tmp.startPoint.equals(startPoint)&&tmp.endPoint.equals(endPoint))||(endPoint.equals(tmp.startPoint)&&startPoint.equals(tmp.endPoint)))){
+			Line tmp=(Line)o;
+			if((tmp.startPoint.equals(startPoint) && tmp.endPoint.equals(endPoint)) || 
+		            (endPoint.equals(tmp.startPoint) && startPoint.equals(tmp.endPoint))){
 				return true;
 			}
 		}
@@ -49,7 +73,6 @@ public class Line {
 	public void setStartPoint(Point startPoint) {this.startPoint=startPoint;}
 	public Point getEndPoint() {return endPoint;}
 	public void setEndPoint(Point endPoint) {this.endPoint = endPoint;}
-	public boolean isSelected() {return selected;}
-	public void setSelected(boolean selected) {this.selected = selected;}
+	
 	
 }

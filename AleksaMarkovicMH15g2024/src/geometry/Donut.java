@@ -3,7 +3,7 @@ package geometry;
 public class Donut extends Circle {
 
 	private int innerRadius;
-	private boolean selected;
+	
 	
 	public Donut() {
 		
@@ -44,6 +44,8 @@ public class Donut extends Circle {
 		
 	}
 	
+	
+	
 	@Override
 	public boolean equals(Object o) {
 		if(o instanceof Donut) {
@@ -51,9 +53,8 @@ public class Donut extends Circle {
 			if(radius==temp.getRadius()&&innerRadius==temp.getInnerRadius()) {
 				return true;
 			}
-			return false;
 		}
-		
+		return false;
 	}
 
 	public int getInnerRadius() {
@@ -64,12 +65,5 @@ public class Donut extends Circle {
 		this.innerRadius = innerRadius;
 	}
 
-	public boolean isSelected() {
-		return selected;
-	}
-
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
 	
 }

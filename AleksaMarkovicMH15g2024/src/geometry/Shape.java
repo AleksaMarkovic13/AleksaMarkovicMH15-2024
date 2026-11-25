@@ -1,6 +1,6 @@
 package geometry;
 
-public abstract class Shape {
+public abstract class Shape implements Moveable, Comparable<Shape> {
 
 	protected boolean selected;
 	
@@ -13,6 +13,8 @@ public abstract class Shape {
 		this.selected=selected;
 	}
 
+	public abstract boolean contains(int x,int y);
+	
 	public boolean isSelected() {
 		return selected;
 	}

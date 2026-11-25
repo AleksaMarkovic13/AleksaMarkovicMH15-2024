@@ -1,9 +1,9 @@
 package geometry;
 
-public class Point {
+public class Point extends Shape {
 	private int x;
 	private int y;
-	private boolean selected;
+	
 	
 	public Point(int x,int y,boolean selected) {
 		this.x=x;
@@ -27,6 +27,19 @@ public class Point {
 		return Math.sqrt(dx*dx+dy*dy);
 	}
 	
+	@Override
+	public void moveTo(int x,int y) {
+		this.x=x;
+		this.y=y;
+	}
+	
+	@Override
+	public void moveBy(int byX,int byY) {
+		x+=byX;
+		y+=byY;
+	}
+	
+	@Override
 	public boolean contains(int x,int y) {
 		return distance(new Point(x,y))<=2;
 		
@@ -48,13 +61,22 @@ public class Point {
 		return false;
 	}
 	
+	@Override
+	public int compareTo(Shape o) {
+		if(o instanceof Point) {
+			Point temp=(Point)o;
+			return (int)(distance(new Point(0,0))-temp.distance(new Point(0,0)));
+		}
+		return 0;
+	}
+	
 	public int getX(){return x;}
 	public int getY() {return y;}
-	public boolean isSelected() {return selected;}
+	
 	
 	public void setX(int x) {this.x=x;}
 	public void setY(int y) {this.y=y;}
-	public void setSelected(boolean selected) {this.selected=selected;}
+	
 	
 	
 	
